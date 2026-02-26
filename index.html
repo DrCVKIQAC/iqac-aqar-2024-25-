@@ -2,7 +2,7 @@
 <html lang="en">
 <!--
 ╔══════════════════════════════════════════════════════════════════════╗
-║  IQAC DATA COLLECTOR v4.0 — AQAR 2024-25 [MULTI-SECTION EDITION]                      ║
+║  IQAC DATA COLLECTOR v4.1 — AQAR 2024-25 [CSV TEMPLATE EDITION]                       ║
 ║  Developer : Venkata Krishnaveni Chennuru                           ║
 ║  Role      :Dept. of Computer Science & IQAC Coordinator                ║
 ║  College   : SKR & SKR GCW(A), Kadapa, AP 516001                   ║
@@ -12,7 +12,7 @@
 -->
 <head>
 <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>IQAC Data Collector v4.0 | AQAR 2024-25 | SKR & SKR GCW(A)</title>
+<title>IQAC Data Collector v4.1 | AQAR 2024-25 | SKR & SKR GCW(A)</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Nunito:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet"/>
 <style>
 :root{--cream:#faf8f4;--warm:#f4f0e8;--warm2:#ede8dd;--border:#ddd8cc;--border2:#c8c0b0;--ink:#1e1a14;--ink2:#3d3628;--ink3:#7a7060;--teal:#1a6b5a;--teal2:#0d5244;--teal-lt:#e8f4f1;--teal-md:#c0dfd8;--blue:#1e4d8c;--blue-lt:#e8eef8;--amber:#c47c1a;--amber-lt:#fdf3e3;--red:#b03a2e;--red-lt:#fde8e6;--green:#1e7a4a;--green-lt:#e8f7ee;--purple:#6b3fa0;--purple-lt:#f0eaf8;--sh:0 2px 16px rgba(30,26,20,.08);--sh2:0 8px 40px rgba(30,26,20,.12)}
@@ -56,6 +56,48 @@ body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--ink);mi
 .sf-hdr h2 span{color:var(--teal)}
 .sf-hdr p{font-size:13px;color:var(--ink3);line-height:1.7;max-width:680px}
 .sf-notice{background:#fff3cd;border:1.5px solid #ffc107;border-radius:9px;padding:12px 16px;margin:0 auto 4px;max-width:1060px;font-size:12.5px;color:#7a5500;line-height:1.7}
+/* CSV Templates Section */
+.csv-section{max-width:1060px;margin:24px auto 0;padding:0 20px}
+.csv-hdr{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:700;color:var(--ink);margin-bottom:4px;padding-bottom:10px;border-bottom:2px solid var(--teal-lt);display:flex;align-items:center;gap:10px}
+.csv-sub{font-size:12px;color:var(--ink3);margin-bottom:16px;line-height:1.65}
+.csv-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px;margin-bottom:22px}
+.csv-card{background:#fff;border:1.5px solid var(--border);border-radius:11px;padding:16px 18px;box-shadow:var(--sh);transition:all .2s;position:relative}
+.csv-card:hover{transform:translateY(-2px);box-shadow:var(--sh2);border-color:var(--teal-md)}
+.csv-card-badge{position:absolute;top:12px;right:12px;font-family:'Fira Code',monospace;font-size:9px;font-weight:700;padding:2px 7px;border-radius:4px;text-transform:uppercase;letter-spacing:.5px}
+.csv-card.hod-csv .csv-card-badge{background:var(--teal-lt);color:var(--teal)}
+.csv-card.adm-csv .csv-card-badge{background:var(--green-lt);color:var(--green)}
+.csv-metric{font-family:'Fira Code',monospace;font-size:9.5px;font-weight:700;color:var(--teal);letter-spacing:.5px;text-transform:uppercase;margin-bottom:6px}
+.csv-title{font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:700;color:var(--ink);margin-bottom:4px}
+.csv-desc{font-size:11.5px;color:var(--ink3);line-height:1.6;margin-bottom:10px}
+.csv-cols{background:var(--warm);border-radius:6px;padding:7px 10px;margin-bottom:11px;font-size:10.5px;color:var(--ink2);font-family:'Fira Code',monospace;line-height:1.7}
+.csv-col-hdr{font-size:9.5px;font-weight:700;color:var(--ink3);text-transform:uppercase;letter-spacing:.5px;margin-bottom:3px;font-family:'Nunito',sans-serif}
+.csv-sample{background:#f8f4ff;border-radius:6px;padding:6px 10px;margin-bottom:11px;font-size:10px;color:#6b3fa0;font-family:'Fira Code',monospace;line-height:1.6;border-left:3px solid #b794f4}
+.csv-sample-lbl{font-size:9px;font-weight:700;color:#6b3fa0;text-transform:uppercase;letter-spacing:.5px;margin-bottom:2px;font-family:'Nunito',sans-serif}
+.csv-dl-btn{font-family:'Nunito',sans-serif;font-size:12px;font-weight:700;background:var(--teal);color:#fff;border:none;padding:8px 16px;border-radius:7px;cursor:pointer;width:100%;transition:all .2s}
+.csv-dl-btn:hover{background:var(--teal2)}
+.csv-howto{background:var(--blue-lt);border:1.5px solid #b8c9e4;border-radius:10px;padding:16px 20px;margin-bottom:20px}
+.csv-howto-title{font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:700;color:var(--blue);margin-bottom:10px}
+.csv-step{display:flex;gap:10px;margin-bottom:8px;font-size:12px;color:var(--ink2);line-height:1.6}
+.csv-step-num{width:22px;height:22px;min-width:22px;background:var(--blue);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;font-family:'Nunito',sans-serif}
+.csv-warn{background:#fde8e6;border:1.5px solid #e8a8a0;border-radius:8px;padding:9px 13px;font-size:11.5px;color:var(--red);line-height:1.6;margin-top:10px}
+.csv-warn strong{font-weight:800}
+/* CSV Templates Section */
+.csv-section{max-width:1100px;margin:0 auto;padding:6px 20px 24px}
+.csv-section-hdr{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:700;color:var(--ink);margin-bottom:6px;display:flex;align-items:center;gap:10px}
+.csv-section-sub{font-size:12.5px;color:var(--ink3);margin-bottom:16px;line-height:1.7}
+.csv-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(285px,1fr));gap:12px}
+.csv-card{background:#fff;border:1.5px solid var(--border);border-radius:11px;padding:15px 17px;box-shadow:var(--sh);display:flex;flex-direction:column;gap:8px}
+.csv-card:hover{box-shadow:var(--sh2);transform:translateY(-2px);transition:all .2s}
+.csv-badge{display:inline-block;font-size:9.5px;font-weight:700;padding:2px 8px;border-radius:20px;letter-spacing:.4px;margin-bottom:2px}
+.csv-badge.hod{background:#e6f3f0;color:var(--teal)}
+.csv-badge.adm{background:#e8f5ee;color:var(--green)}
+.csv-title{font-size:13.5px;font-weight:700;color:var(--ink);line-height:1.4}
+.csv-metric{font-size:10.5px;color:var(--ink3);font-family:'Fira Code',monospace}
+.csv-cols{background:var(--warm);border-radius:6px;padding:7px 10px;font-size:10.5px;color:var(--ink2);line-height:1.8;font-family:'Fira Code',monospace}
+.csv-cols span{color:var(--teal);font-weight:700}
+.csv-example{background:#f0faf6;border-left:3px solid var(--teal);padding:5px 9px;font-size:10px;color:var(--ink3);border-radius:0 5px 5px 0;font-family:'Fira Code',monospace;line-height:1.7}
+.csv-btn-row{display:flex;gap:7px;flex-wrap:wrap;margin-top:4px}
+.csv-warn{background:#fff0f0;border:1px solid #f5c6c6;border-radius:6px;padding:5px 9px;font-size:10.5px;color:#c0392b;line-height:1.6}
 .ds{background:linear-gradient(90deg,var(--teal-lt),var(--blue-lt),var(--amber-lt));border-bottom:1px solid var(--border);padding:5px 18px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:4px}
 .dl{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
 .dby{font-family:'Fira Code',monospace;font-size:8.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--teal)}
@@ -385,7 +427,7 @@ body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--ink);mi
   <div class="logo-wrap">
     <div class="logo-ic">📋</div>
     <div>
-      <div class="logo-t">IQAC <span>Data Collector</span> <span style="font-size:10.5px;color:var(--amber);font-family:'Fira Code',monospace;">v4.0</span></div>
+      <div class="logo-t">IQAC <span>Data Collector</span> <span style="font-size:10.5px;color:var(--amber);font-family:'Fira Code',monospace;">v4.1</span></div>
       <div class="logo-s">AQAR 2024-25 · SKR & SKR GCW(A) · Kadapa</div>
     </div>
   </div>
@@ -1036,39 +1078,39 @@ body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--ink);mi
 <div class="sc" id="sc-sectionforms">
   <div class="sf-hdr">
     <h2>📋 <span>Section Forms</span> — Data Collection by Section</h2>
-    <p>AQAR 2024-25 data is now collected from the <strong>right source</strong>. Scholarship, Examination, and Admission data are no longer asked from HODs — they are collected directly from the relevant section in-charges through dedicated forms. Each form flows automatically into the IQAC Dashboard via Sync.</p>
+    <p>AQAR 2024-25 data is now collected from the <strong>right source</strong>. Scholarship, Examination, and Admission data are no longer asked from HODs — they are collected directly from the relevant section in-charges. For detailed data (publications, placements, FDPs etc.), HODs download a CSV template, fill it, and upload — ensuring <strong>standardised, consistent data</strong>.</p>
   </div>
 
   <div class="sf-notice">
-    <strong>📌 What changed in v4.0:</strong>
-    Scholarship questions removed from HOD Form → collected via <strong>Scholarship Section Form</strong> |
-    Exam result questions removed → collected via <strong>Examination Section Form</strong> |
-    Admission + caste-wise data removed → collected via <strong>Admission Section Form</strong>.<br>
-    HODs now only fill what they actually know — making data more accurate and faster to collect.
+    <strong>📌 v4.0 change:</strong> Scholarship / Exam / Admission data separated into dedicated section forms. HODs only fill what they actually know.<br>
+    <strong>🆕 v4.1 change:</strong> Multi-entry questions (Publications, Placements, FDPs, MoUs, Fellowships, Admissions) now use <strong>CSV file upload</strong> instead of pipe-separated free text. Download templates below → fill in Excel/Google Sheets → upload in the form. This eliminates inconsistent formatting and makes data consolidation easy.
   </div>
 
+  <!-- ── 4 Form Cards ── -->
   <div class="sf-grid">
 
     <!-- HOD Form Card -->
     <div class="sf-card hod">
-      <span id="hod-sf-status" class="sf-status pending">⏳ 5/24 Pending</span>
+      <span id="hod-sf-status" class="sf-status pending">⏳ Pending</span>
       <span class="sf-icon">👩‍🏫</span>
       <div class="sf-title">HOD Department Form</div>
       <span class="sf-who">Fill by: Each HOD (24 departments)</span>
-      <div class="sf-desc">Each Head of Department fills this form once. Contains only department-level academic data that only the HOD knows — teaching, research, infrastructure, placement.</div>
+      <div class="sf-desc">Each Head of Department fills this form once. Numeric questions have clear format instructions. For detailed records, HODs download &amp; upload CSV templates.</div>
       <div class="sf-fields">
         <strong>Covers:</strong><br>
         ✅ Value-Added Courses (1.3.2 – 1.3.4)<br>
         ✅ Teacher Profile — PhD, Experience (2.4.1 – 2.4.3)<br>
         ✅ Research, Publications, MoUs (3.x)<br>
         ✅ ICT Infrastructure (4.1.3, 4.3.2)<br>
-        ✅ Placement & Career Guidance (5.2.x)<br>
-        ✅ FDPs & Training (6.3.x)
+        ✅ Placement &amp; Career Guidance (5.2.x)<br>
+        ✅ FDPs &amp; Training (6.3.x)<br>
+        <span style="color:var(--teal);font-weight:700">📎 5 questions: CSV upload (templates below)</span>
       </div>
       <div class="sf-removed">
-        ❌ Removed: Scholarship data → now in Scholarship Form<br>
-        ❌ Removed: Exam results → now in Examination Form<br>
-        ❌ Removed: Caste-wise admission → now in Admission Form
+        ❌ Removed: Scholarship data → Scholarship Form<br>
+        ❌ Removed: Exam results → Examination Form<br>
+        ❌ Removed: Caste-wise admission → Admission Form<br>
+        ❌ Removed: Pipe-text fields → replaced with CSV upload
       </div>
       <div class="sf-btn-row">
         <button class="bs bt" onclick="window.open('https://forms.gle/6DBaRZndVtpk8Ysk7','_blank')">↗ Open HOD Form</button>
@@ -1085,11 +1127,12 @@ body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--ink);mi
       <span class="sf-who">Fill by: Scholarship In-charge Officer</span>
       <div class="sf-desc">To be filled <strong>once</strong> by the Scholarship Section in-charge. Contains college-wide scholarship totals — the scholarship office has the official figures, not individual HODs.</div>
       <div class="sf-fields">
-        <strong>Covers (Metric 5.1.1 & 5.1.2):</strong><br>
+        <strong>Covers (Metric 5.1.1 &amp; 5.1.2):</strong><br>
         ✅ Total students with Govt Scholarships<br>
         ✅ SC / ST / OBC breakdown<br>
         ✅ NGO / Institutional Scholarships<br>
-        ✅ Total scholarship amount disbursed (₹)
+        ✅ Total scholarship amount disbursed (₹)<br>
+        <em style="color:var(--ink3);font-size:10.5px">All fields are simple numbers — no CSV needed</em>
       </div>
       <div class="sf-btn-row">
         <button class="bs bt" style="background:var(--blue)" id="schol-open-btn" onclick="openSectionForm('scholarship')">↗ Open Form</button>
@@ -1107,10 +1150,11 @@ body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--ink);mi
       <div class="sf-desc">To be filled <strong>once</strong> by the Examination Section in-charge. Contains college-wide exam result data — only the exam section has official pass/appear statistics.</div>
       <div class="sf-fields">
         <strong>Covers (Metrics 2.5, 2.6, EP 2.3):</strong><br>
-        ✅ Final Year students Passed & Appeared<br>
+        ✅ Final Year students Passed &amp; Appeared<br>
         ✅ Days from exam to result declaration<br>
         ✅ Student grievances against evaluation<br>
-        ✅ Total students appeared (EP 2.3)
+        ✅ Total students appeared (EP 2.3)<br>
+        <em style="color:var(--ink3);font-size:10.5px">All fields are simple numbers — no CSV needed</em>
       </div>
       <div class="sf-btn-row">
         <button class="bs bt" style="background:var(--amber)" id="exam-open-btn" onclick="openSectionForm('exam')">↗ Open Form</button>
@@ -1125,13 +1169,13 @@ body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--ink);mi
       <span class="sf-icon">🎓</span>
       <div class="sf-title">Admission Section Form</div>
       <span class="sf-who">Fill by: Admission In-charge Officer</span>
-      <div class="sf-desc">To be filled <strong>once</strong> by the Admission Section in-charge. Contains total admission figures and official caste-wise breakdown — only the admission office has this data correctly.</div>
+      <div class="sf-desc">To be filled <strong>once</strong> by the Admission Section in-charge. Overall totals are entered as numbers; programme-wise breakdown is submitted via CSV upload.</div>
       <div class="sf-fields">
         <strong>Covers (Metrics 2.1, EP 4.1):</strong><br>
         ✅ Total students admitted (2.1.1.1)<br>
         ✅ Reserved seats filled (2.1.2)<br>
-        ✅ SC / ST / OBC / PWD / Women breakdown<br>
-        ✅ Programme-wise caste data table
+        ✅ SC / ST / OBC / PWD / Women totals<br>
+        <span style="color:var(--green);font-weight:700">📎 Programme-wise table: CSV upload required</span>
       </div>
       <div class="sf-btn-row">
         <button class="bs bt" style="background:var(--green)" id="adm-open-btn" onclick="openSectionForm('adm')">↗ Open Form</button>
@@ -1142,24 +1186,272 @@ body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--ink);mi
 
   </div><!-- /sf-grid -->
 
-  <!-- Instructions box -->
-  <div style="max-width:1060px;margin:0 auto 28px;padding:0 20px">
+  <!-- ══════════════════════════════════════════════════════
+       CSV TEMPLATES SECTION (v4.1 NEW)
+  ══════════════════════════════════════════════════════ -->
+  <div class="csv-section">
+    <div class="csv-section-hdr">
+      📎 <span>CSV Data Templates</span>
+      <span style="font-size:11px;background:var(--teal);color:#fff;padding:2px 9px;border-radius:12px;font-family:'Fira Code',monospace;font-weight:400">v4.1 NEW</span>
+    </div>
+    <div class="csv-section-sub">
+      For questions that collect multiple records (Publications, Placements, FDPs, MoUs, Fellowships, Programme-wise Admissions), download the CSV template below, fill it in <strong>Microsoft Excel or Google Sheets</strong>, and upload it in the corresponding form question.<br>
+      <strong>Why CSV?</strong> Everyone entering pipe-separated text (A | B | C) in different formats made consolidation impossible. CSV templates enforce exact column order, correct date formats, and consistent values — saving hours of cleanup.
+    </div>
+
+    <div class="csv-grid">
+
+      <!-- Template 1: Fellowships -->
+      <div class="csv-card">
+        <div><span class="csv-badge hod">HOD FORM</span></div>
+        <div class="csv-title">🏅 Teacher Fellowships</div>
+        <div class="csv-metric">Metric 3.1.3 — National / International Fellowships</div>
+        <div class="csv-cols">
+          <span>Fellowship_Name</span> | <span>Teacher_Name</span> | <span>Awarding_Agency</span> | <span>Month_Year</span> | <span>Amount_Lakhs</span> | <span>Remarks</span>
+        </div>
+        <div class="csv-example">
+          📋 Example row:<br>
+          UGC-BSR Fellowship | Dr. K. Example | UGC | 06/2024 | 0.25 | Post-doctoral<br><br>
+          📝 Month_Year format: MM/YYYY<br>
+          📝 Amount_Lakhs: enter 0 if not available
+        </div>
+        <div class="csv-warn">⚠️ One fellowship per row. Do not merge rows or add totals.</div>
+        <div class="csv-btn-row">
+          <button class="bs bt" onclick="downloadCSV('fellowships')">⬇ Download Template</button>
+        </div>
+      </div>
+
+      <!-- Template 2: Publications -->
+      <div class="csv-card">
+        <div><span class="csv-badge hod">HOD FORM</span></div>
+        <div class="csv-title">📄 CARE Journal Publications</div>
+        <div class="csv-metric">Metric 3.4.3 — Papers in CARE / UGC-listed Journals</div>
+        <div class="csv-cols">
+          <span>Paper_Title</span> | <span>Journal_Name</span> | <span>ISSN</span> | <span>Year</span> | <span>Teacher_Name</span> | <span>Scopus_Indexed</span> | <span>DOI</span>
+        </div>
+        <div class="csv-example">
+          📋 Example row:<br>
+          Title of Paper | Journal of Science | 0975-1234 | 2024 | Dr. K. Example | Yes | 10.1234/ex<br><br>
+          📝 ISSN format: XXXX-XXXX<br>
+          📝 Scopus_Indexed: Yes or No only<br>
+          📝 DOI: enter NA if not available
+        </div>
+        <div class="csv-warn">⚠️ One paper per row. ISSN must be in XXXX-XXXX format.</div>
+        <div class="csv-btn-row">
+          <button class="bs bt" onclick="downloadCSV('publications')">⬇ Download Template</button>
+        </div>
+      </div>
+
+      <!-- Template 3: MoUs -->
+      <div class="csv-card">
+        <div><span class="csv-badge hod">HOD FORM</span></div>
+        <div class="csv-title">🤝 Functional MoUs</div>
+        <div class="csv-metric">Metric 3.7.2 — MoUs with Institutions / Industries</div>
+        <div class="csv-cols">
+          <span>Institution_Industry</span> | <span>Nature_of_Activity</span> | <span>Students_Benefitted</span> | <span>MoU_Date</span> | <span>Status</span> | <span>Duration_Years</span>
+        </div>
+        <div class="csv-example">
+          📋 Example row:<br>
+          Example Industries Pvt Ltd | Student Internship | 45 | 15/08/2024 | Active | 3<br><br>
+          📝 MoU_Date format: DD/MM/YYYY<br>
+          📝 Status: Active or Completed only<br>
+          📝 List only currently ACTIVE MoUs
+        </div>
+        <div class="csv-warn">⚠️ One MoU per row. Status must be exactly "Active" or "Completed".</div>
+        <div class="csv-btn-row">
+          <button class="bs bt" onclick="downloadCSV('mous')">⬇ Download Template</button>
+        </div>
+      </div>
+
+      <!-- Template 4: Placements -->
+      <div class="csv-card">
+        <div><span class="csv-badge hod">HOD FORM</span></div>
+        <div class="csv-title">💼 Student Placements</div>
+        <div class="csv-metric">Metric 5.2.1 — Outgoing Students Placed</div>
+        <div class="csv-cols">
+          <span>Student_Name</span> | <span>Programme</span> | <span>Company_Name</span> | <span>Package_LPA</span> | <span>Month_Year</span> | <span>Placement_Type</span>
+        </div>
+        <div class="csv-example">
+          📋 Example row:<br>
+          Student Full Name | BSc Computer Science | Example Company | 3.5 | 01/2025 | Campus<br><br>
+          📝 Package_LPA: in Lakhs Per Annum e.g. 3.5<br>
+          📝 Month_Year format: MM/YYYY<br>
+          📝 Placement_Type: Campus / Off-Campus / Government
+        </div>
+        <div class="csv-warn">⚠️ One student per row. Package_LPA must be a number (no ₹ symbol).</div>
+        <div class="csv-btn-row">
+          <button class="bs bt" onclick="downloadCSV('placements')">⬇ Download Template</button>
+        </div>
+      </div>
+
+      <!-- Template 5: FDPs -->
+      <div class="csv-card">
+        <div><span class="csv-badge hod">HOD FORM</span></div>
+        <div class="csv-title">🎓 FDPs &amp; Training Programmes</div>
+        <div class="csv-metric">Metric 6.3.4 — Teachers who attended FDPs</div>
+        <div class="csv-cols">
+          <span>Teacher_Name</span> | <span>Programme_Name</span> | <span>Organising_Body</span> | <span>Mode</span> | <span>Duration_Days</span> | <span>Month_Year</span>
+        </div>
+        <div class="csv-example">
+          📋 Example row:<br>
+          Dr. K. Example | FDP on Research Methodology | UGC-HRDC Tirupati | Offline | 5 | 07/2024<br><br>
+          📝 Mode: Online / Offline / Hybrid only<br>
+          📝 Duration_Days: number only e.g. 5<br>
+          📝 Month_Year format: MM/YYYY
+        </div>
+        <div class="csv-warn">⚠️ One teacher-programme per row. If one teacher attended 3 FDPs, enter 3 rows.</div>
+        <div class="csv-btn-row">
+          <button class="bs bt" onclick="downloadCSV('fdps')">⬇ Download Template</button>
+        </div>
+      </div>
+
+      <!-- Template 6: Programme-wise Admissions -->
+      <div class="csv-card">
+        <div><span class="csv-badge adm">ADMISSION FORM</span></div>
+        <div class="csv-title">🎓 Programme-wise Admissions</div>
+        <div class="csv-metric">Metrics 2.1.1.1 &amp; 2.1.2 — Caste-wise by Programme</div>
+        <div class="csv-cols">
+          <span>Programme_Name</span> | <span>Sanctioned_Intake</span> | <span>Students_Admitted</span> | <span>SC</span> | <span>ST</span> | <span>OBC_BC</span> | <span>PWD</span> | <span>Women</span>
+        </div>
+        <div class="csv-example">
+          📋 Example row:<br>
+          BSc Computer Science | 60 | 55 | 18 | 4 | 22 | 1 | 55<br><br>
+          📝 All values must be whole numbers<br>
+          📝 SC+ST+OBC_BC+PWD must be ≤ Students_Admitted<br>
+          📝 Do NOT add a Totals row at the bottom
+        </div>
+        <div class="csv-warn">⚠️ One programme per row. No merged cells. No totals row.</div>
+        <div class="csv-btn-row">
+          <button class="bs bt" style="background:var(--green)" onclick="downloadCSV('admission_programmewise')">⬇ Download Template</button>
+        </div>
+      </div>
+
+    </div><!-- /csv-grid -->
+
+    <!-- How-to use CSV templates box -->
+    <div style="background:#f0faf6;border:1.5px solid var(--teal-md);border-radius:10px;padding:16px 20px;margin-top:18px;font-size:12.5px;color:var(--ink2);line-height:2">
+      <strong style="color:var(--teal);font-size:13px">📋 How to use CSV Templates (step by step)</strong><br>
+      <strong>Step 1 —</strong> Click <em>⬇ Download Template</em> above for the relevant question<br>
+      <strong>Step 2 —</strong> Open the downloaded file in <strong>Microsoft Excel</strong> or <strong>Google Sheets</strong> (File → Open)<br>
+      <strong>Step 3 —</strong> Delete the instruction lines starting with <code style="background:var(--warm2);padding:1px 5px;border-radius:3px">#</code> at the top (rows 1–5 approximately)<br>
+      <strong>Step 4 —</strong> Keep the header row (column names) as-is — <strong>do not rename or reorder columns</strong><br>
+      <strong>Step 5 —</strong> Fill your data row by row below the header. One entry per row.<br>
+      <strong>Step 6 —</strong> Save as <strong>CSV (Comma Separated Values)</strong> — in Excel: File → Save As → CSV. In Google Sheets: File → Download → CSV<br>
+      <strong>Step 7 —</strong> Open the HOD Form / Admission Form → go to the matching question → click <em>Upload</em> → select your saved CSV file
+    </div>
+  </div><!-- /csv-section -->
+
+  <!-- CSV TEMPLATES SECTION v4.1 -->
+  <div class="csv-section">
+    <div class="csv-hdr">📥 <span style="color:var(--teal)">CSV Templates</span> — Structured Data Entry for HODs</div>
+    <p class="csv-sub">
+      In v4.1, questions that previously used free-text <code style="background:var(--warm);padding:1px 5px;border-radius:3px">Name | Value | Year</code> format are replaced with structured CSV file uploads.
+      This gives <strong>clean, consistent data</strong> that feeds directly into NAAC submission tables — no reformatting needed.<br>
+      <strong>HOD Steps:</strong> Download template below → open in Excel/Google Sheets → fill your data → upload in the HOD Form.
+    </p>
+    <div class="csv-howto">
+      <div class="csv-howto-title">📖 3-Step Process for HODs</div>
+      <div class="csv-step"><span class="csv-step-num">1</span><span>Click <strong>⬇ Download Template</strong> for each applicable question. Open in Excel or Google Sheets.</span></div>
+      <div class="csv-step"><span class="csv-step-num">2</span><span>Fill your data — <strong>one entry per row</strong>. Delete instruction lines (rows starting with #). Keep the header row.</span></div>
+      <div class="csv-step"><span class="csv-step-num">3</span><span>In the HOD Google Form, find the matching upload question and <strong>upload your filled CSV or XLSX file</strong>.</span></div>
+      <div class="csv-warn">
+        <strong>⚠️ Format Rules (important):</strong> Do NOT change column headers. Numbers only — write <code>3.5</code> not <code>₹3.5L</code>. Dates must be DD/MM/YYYY or MM/YYYY. One entry per row. No merged cells. No totals row at bottom.
+      </div>
+    </div>
+    <div class="csv-grid">
+
+      <div class="csv-card hod-csv">
+        <span class="csv-card-badge">HOD Form</span>
+        <div class="csv-metric">Metric 3.1.3</div>
+        <div class="csv-title">Teacher Fellowships</div>
+        <div class="csv-desc">One row per fellowship. Only fellowships awarded this academic year (2024-25).</div>
+        <div class="csv-col-hdr">Columns:</div>
+        <div class="csv-cols">Fellowship_Name | Teacher_Name | Awarding_Agency<br>Month_Year (MM/YYYY) | Amount_Lakhs | Remarks</div>
+        <div class="csv-sample-lbl">Example Row:</div>
+        <div class="csv-sample">UGC-BSR Fellowship | Dr. Example | UGC | 06/2024 | 0.25 | Post-doctoral</div>
+        <button class="csv-dl-btn" onclick="dlCSVTemplate('fellowships')">⬇ Download Template — Fellowships 3.1.3</button>
+      </div>
+
+      <div class="csv-card hod-csv">
+        <span class="csv-card-badge">HOD Form</span>
+        <div class="csv-metric">Metric 3.4.3</div>
+        <div class="csv-title">CARE Journal Publications</div>
+        <div class="csv-desc">One row per paper. Only CARE / UGC-listed journals. Published in 2024-25.</div>
+        <div class="csv-col-hdr">Columns:</div>
+        <div class="csv-cols">Paper_Title | Journal_Name | ISSN (XXXX-XXXX)<br>Year (YYYY) | Teacher_Name | Scopus_Indexed (Yes/No) | DOI</div>
+        <div class="csv-sample-lbl">Example Row:</div>
+        <div class="csv-sample">Title of Paper | Journal Name | 0975-1234 | 2024 | Dr. Example | Yes | 10.1234/ex</div>
+        <button class="csv-dl-btn" onclick="dlCSVTemplate('publications')">⬇ Download Template — Publications 3.4.3</button>
+      </div>
+
+      <div class="csv-card hod-csv">
+        <span class="csv-card-badge">HOD Form</span>
+        <div class="csv-metric">Metric 3.7.2</div>
+        <div class="csv-title">Functional MoUs</div>
+        <div class="csv-desc">One row per MoU. Include only ACTIVE MoUs (not expired). Status = Active or Completed.</div>
+        <div class="csv-col-hdr">Columns:</div>
+        <div class="csv-cols">Institution_Industry | Nature_of_Activity<br>Students_Benefitted | MoU_Date (DD/MM/YYYY) | Status | Duration_Years</div>
+        <div class="csv-sample-lbl">Example Row:</div>
+        <div class="csv-sample">Example Industries Pvt Ltd | Student Internship | 45 | 15/08/2024 | Active | 3</div>
+        <button class="csv-dl-btn" onclick="dlCSVTemplate('mous')">⬇ Download Template — MoUs 3.7.2</button>
+      </div>
+
+      <div class="csv-card hod-csv">
+        <span class="csv-card-badge">HOD Form</span>
+        <div class="csv-metric">Metric 5.2.1</div>
+        <div class="csv-title">Student Placements</div>
+        <div class="csv-desc">One row per placed student. Confirmed placements only. Package in Lakhs Per Annum (LPA).</div>
+        <div class="csv-col-hdr">Columns:</div>
+        <div class="csv-cols">Student_Name | Programme | Company_Name<br>Package_LPA (e.g. 3.5) | Month_Year (MM/YYYY) | Placement_Type</div>
+        <div class="csv-sample-lbl">Example Row:</div>
+        <div class="csv-sample">Student Full Name | BSc CS | Example Company | 3.5 | 01/2025 | Campus</div>
+        <button class="csv-dl-btn" onclick="dlCSVTemplate('placements')">⬇ Download Template — Placements 5.2.1</button>
+      </div>
+
+      <div class="csv-card hod-csv">
+        <span class="csv-card-badge">HOD Form</span>
+        <div class="csv-metric">Metric 6.3.4</div>
+        <div class="csv-title">FDPs & Training Programmes</div>
+        <div class="csv-desc">One row per FDP / training programme attended by a teacher this year.</div>
+        <div class="csv-col-hdr">Columns:</div>
+        <div class="csv-cols">Teacher_Name | Programme_Name | Organising_Body<br>Mode (Online/Offline/Hybrid) | Duration_Days | Month_Year (MM/YYYY)</div>
+        <div class="csv-sample-lbl">Example Row:</div>
+        <div class="csv-sample">Dr. Example | FDP on Research Methods | UGC-HRDC | Offline | 5 | 07/2024</div>
+        <button class="csv-dl-btn" onclick="dlCSVTemplate('fdps')">⬇ Download Template — FDPs 6.3.4</button>
+      </div>
+
+      <div class="csv-card adm-csv">
+        <span class="csv-card-badge" style="background:var(--green-lt);color:var(--green)">Admission Form</span>
+        <div class="csv-metric">Metrics 2.1.1.1 & 2.1.2</div>
+        <div class="csv-title">Programme-wise Admissions</div>
+        <div class="csv-desc">One row per programme. Filled by Admission In-charge only. Caste-wise breakdown per programme.</div>
+        <div class="csv-col-hdr">Columns:</div>
+        <div class="csv-cols">Programme_Name | Sanctioned_Intake | Students_Admitted<br>SC | ST | OBC_BC | PWD | Women</div>
+        <div class="csv-sample-lbl">Example Row:</div>
+        <div class="csv-sample">BSc Computer Science | 60 | 55 | 18 | 4 | 22 | 1 | 55</div>
+        <button class="csv-dl-btn" style="background:var(--green)" onclick="dlCSVTemplate('admission_programmewise')">⬇ Download Template — Admissions 2.1</button>
+      </div>
+
+    </div><!-- /csv-grid -->
+  </div><!-- /csv-section -->
+
+  <!-- Setup Instructions v4.1 -->
+  <div style="max-width:1060px;margin:20px auto 28px;padding:0 20px">
     <div style="background:#fff;border:1px solid var(--border);border-radius:11px;padding:20px 22px;box-shadow:var(--sh)">
       <div style="font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:700;color:var(--ink);margin-bottom:12px;padding-bottom:8px;border-bottom:2px solid var(--teal-lt)">
-        🛠️ How to Set Up the Section Forms (One-time Setup)
+        🛠️ Setup Guide — v4.1 (IQAC Coordinator — One-time)
       </div>
-      <div style="font-size:12.5px;color:var(--ink2);line-height:2">
-        <strong>Step 1 — Create the 4 forms (IQAC Coordinator does this once):</strong><br>
-        Open Google Apps Script → paste <code style="background:var(--warm2);padding:1px 6px;border-radius:3px">AQAR_Master_Script_v4.gs</code> → Run these functions in order:<br>
-        &nbsp;&nbsp;→ <code style="background:var(--warm2);padding:1px 6px;border-radius:3px">createHODForm()</code> — creates trimmed HOD form<br>
-        &nbsp;&nbsp;→ <code style="background:var(--warm2);padding:1px 6px;border-radius:3px">createScholarshipForm()</code> — creates scholarship section form<br>
-        &nbsp;&nbsp;→ <code style="background:var(--warm2);padding:1px 6px;border-radius:3px">createExaminationForm()</code> — creates examination section form<br>
-        &nbsp;&nbsp;→ <code style="background:var(--warm2);padding:1px 6px;border-radius:3px">createAdmissionForm()</code> — creates admission section form<br>
-        &nbsp;&nbsp;→ <code style="background:var(--warm2);padding:1px 6px;border-radius:3px">setupAll()</code> — wires all triggers<br><br>
-        <strong>Step 2 — Share the form links:</strong><br>
-        Copy each form URL from Apps Script logs → paste in the ⚙️ Set URL buttons above → share links with respective in-charges<br><br>
-        <strong>Step 3 — Deploy Web App and Sync:</strong><br>
-        Deploy the script as a Web App → paste URL in the 🔄 Sync Sheet panel → click Sync → all 4 sources merge automatically
+      <div style="font-size:12.5px;color:var(--ink2);line-height:2.1">
+        <strong>Step 1 — Generate CSV Templates:</strong><br>
+        &nbsp;&nbsp;→ Open Apps Script → paste <code style="background:var(--warm);padding:1px 6px;border-radius:3px">AQAR_Master_Script_v4.1.gs</code><br>
+        &nbsp;&nbsp;→ Run <code style="background:var(--warm);padding:1px 6px;border-radius:3px">generateCSVTemplates()</code> FIRST → 6 template CSVs created in Drive folder<br><br>
+        <strong>Step 2 — Create the 4 Google Forms:</strong><br>
+        &nbsp;&nbsp;→ Run: <code style="background:var(--warm);padding:1px 6px;border-radius:3px">createHODForm()</code> → <code style="background:var(--warm);padding:1px 6px;border-radius:3px">createScholarshipForm()</code> → <code style="background:var(--warm);padding:1px 6px;border-radius:3px">createExaminationForm()</code> → <code style="background:var(--warm);padding:1px 6px;border-radius:3px">createAdmissionForm()</code> → <code style="background:var(--warm);padding:1px 6px;border-radius:3px">setupAll()</code><br><br>
+        <strong>Step 3 — Deploy & Share:</strong><br>
+        &nbsp;&nbsp;→ Deploy as Web App → paste URL in 🔄 Sync panel → use ⚙️ Set URL for each section form<br>
+        &nbsp;&nbsp;→ When sharing HOD Form, instruct HODs: <em style="color:var(--teal)">"Download CSV templates from IQAC website → Section Forms page → fill and upload in the form"</em><br><br>
+        <strong>Step 4 — Uploaded CSVs in Drive:</strong><br>
+        &nbsp;&nbsp;→ All HOD-uploaded CSV files are auto-saved to: <em>AQAR 2024-25 HOD Uploads</em> (sub-folders per metric: Publications_3.4.3, Placements_5.2.1, etc.)
       </div>
     </div>
   </div>
@@ -1199,10 +1491,10 @@ body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--ink);mi
       <div class="ar">Assistant Professor, Computer Science · IQAC Coordinator</div>
       <div class="ai">SKR &amp; SKR Government College for Women (Autonomous)</div>
       <div class="ai">Kadapa, Andhra Pradesh, India — 516001</div>
-      <div style="margin-top:9px;font-family:'Fira Code',monospace;font-size:10px;color:var(--teal);">IQAC Data Collector v4.0 · AQAR 2024-25 · Multi-Section Edition · Built in 2026</div>
+      <div style="margin-top:9px;font-family:'Fira Code',monospace;font-size:10px;color:var(--teal);">IQAC Data Collector v4.1 · AQAR 2024-25 · CSV Template Edition · Built in 2026</div>
     </div>
     <div class="acg">
-      <div class="acd"><div class="act">📋 About This Tool</div><p>IQAC Data Collector v4.0 — Multi-Section Edition. Purpose-built for AQAR 2024-25 at SKR &amp; SKR GCW(A), Kadapa. v4.0 introduces separate forms for Scholarship, Examination, and Admission sections — eliminating data-at-wrong-source errors. All 2023-24 data pre-filled as baseline.</p></div>
+      <div class="acd"><div class="act">📋 About This Tool</div><p>IQAC Data Collector v4.1 — CSV Template Edition. Purpose-built for AQAR 2024-25 at SKR &amp; SKR GCW(A), Kadapa. v4.1 introduces separate forms for Scholarship, Examination, and Admission sections — eliminating data-at-wrong-source errors. All 2023-24 data pre-filled as baseline.</p></div>
       <div class="acd"><div class="act">🏛️ Institution</div><p><strong>Name:</strong> SKR &amp; SKR GCW(A), Kadapa</p><p><strong>NAAC Cycle 3:</strong> B (2.46) · Valid to 07/07/2028</p><p><strong>Autonomous:</strong> Since 14/10/2024</p><p><strong>Programmes:</strong> 16 (14 UG + 2 PG)</p><p><strong>Students:</strong> 1689 · Teachers: 57</p><p><strong>IQAC Est:</strong> 15/06/2007</p></div>
       <div class="acd"><div class="act">💾 Data &amp; Privacy</div><p>All data is saved locally in your browser's localStorage. No data is sent to any server. Works completely offline. Export to CSV for official submission preparation.</p></div>
       <div class="acd"><div class="act">📜 License</div><p>Copyright © 2026 <strong>Venkata Krishnaveni Chennuru</strong></p><br/><p>Dual licensed: MIT (code) + CC BY-NC 4.0 (content). Free to use with attribution. Developer credits must be retained in all copies.</p><p><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0 →</a></p></div>
@@ -2060,13 +2352,288 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // ════════════════════════════════════════════════════════
-// v4.0 — SECTION FORMS URL MANAGEMENT
+
+// ── v4.1 — CSV TEMPLATE DOWNLOADS ───────────────────────────────────
+const CSV_TEMPLATES_DATA = {
+  fellowships: {
+    filename: 'AQAR_Template_Fellowships_3.1.3.csv',
+    instructions: [
+      '# AQAR 2024-25 | CSV Template: Teacher Fellowships (Metric 3.1.3)',
+      '# Institution: SKR & SKR Government College for Women (Autonomous) Kadapa',
+      '# HOW TO FILL:',
+      '#   - One fellowship per row',
+      '#   - Fellowship_Name: Official fellowship name e.g. UGC-BSR / DST-INSPIRE',
+      '#   - Teacher_Name: Full name as per service records',
+      '#   - Awarding_Agency: e.g. UGC / DST / CSIR / ICMR / DBT',
+      '#   - Month_Year: format MM/YYYY e.g. 06/2024',
+      '#   - Amount_Lakhs: Enter number only e.g. 0.25 (enter 0 if not applicable)',
+      '#   - DELETE these instruction lines before uploading (keep header row)',
+      '# ──────────────────────────────────────────────────────────────────',
+    ],
+    headers: ['Fellowship_Name','Teacher_Name','Awarding_Agency','Month_Year','Amount_Lakhs','Remarks'],
+    sample:   ['UGC-BSR Research Fellowship','Dr. Example Name','UGC','06/2024','0.25','Post-doctoral fellowship'],
+  },
+  publications: {
+    filename: 'AQAR_Template_Publications_3.4.3.csv',
+    instructions: [
+      '# AQAR 2024-25 | CSV Template: CARE Journal Publications (Metric 3.4.3)',
+      '# Institution: SKR & SKR Government College for Women (Autonomous) Kadapa',
+      '# HOW TO FILL:',
+      '#   - One paper per row',
+      '#   - Paper_Title: Full title (no abbreviation)',
+      '#   - Journal_Name: Full official journal name',
+      '#   - ISSN: Format XXXX-XXXX e.g. 0975-1234',
+      '#   - Year: 4-digit year e.g. 2024',
+      '#   - Teacher_Name: Name of teacher/author from your department',
+      '#   - Scopus_Indexed: Yes or No',
+      '#   - DOI: e.g. 10.1234/example (enter NA if not available)',
+      '#   - DELETE these instruction lines before uploading (keep header row)',
+      '# ──────────────────────────────────────────────────────────────────',
+    ],
+    headers: ['Paper_Title','Journal_Name','ISSN','Year','Teacher_Name','Scopus_Indexed','DOI'],
+    sample:   ['Title of the Research Paper','Journal of Example Science','0975-1234','2024','Dr. Example Name','Yes','10.1234/example'],
+  },
+  mous: {
+    filename: 'AQAR_Template_MoUs_3.7.2.csv',
+    instructions: [
+      '# AQAR 2024-25 | CSV Template: Functional MoUs (Metric 3.7.2)',
+      '# Institution: SKR & SKR Government College for Women (Autonomous) Kadapa',
+      '# HOW TO FILL:',
+      '#   - One MoU per row',
+      '#   - Institution_Industry: Full official name of partner',
+      '#   - Nature_of_Activity: e.g. Student Internship / Joint Research / Training',
+      '#   - Students_Benefitted: Whole number (no commas)',
+      '#   - MoU_Date: format DD/MM/YYYY e.g. 15/08/2024',
+      '#   - Status: Active or Completed',
+      '#   - Duration_Years: Whole number e.g. 3',
+      '#   - DELETE these instruction lines before uploading (keep header row)',
+      '# ──────────────────────────────────────────────────────────────────',
+    ],
+    headers: ['Institution_Industry','Nature_of_Activity','Students_Benefitted','MoU_Date','Status','Duration_Years'],
+    sample:   ['Example Industries Pvt Ltd','Student Internship and Training','45','15/08/2024','Active','3'],
+  },
+  placements: {
+    filename: 'AQAR_Template_Placements_5.2.1.csv',
+    instructions: [
+      '# AQAR 2024-25 | CSV Template: Student Placements (Metric 5.2.1)',
+      '# Institution: SKR & SKR Government College for Women (Autonomous) Kadapa',
+      '# HOW TO FILL:',
+      '#   - One student per row',
+      '#   - Student_Name: Full name as per college records',
+      '#   - Programme: e.g. BSc Computer Science / BCom / BA English',
+      '#   - Company_Name: Full official company name (no abbreviation)',
+      '#   - Package_LPA: Annual package in Lakhs only — enter 3.5 not Rs.3.5L',
+      '#   - Month_Year: format MM/YYYY e.g. 01/2025',
+      '#   - Placement_Type: Campus / Off-Campus / Government',
+      '#   - DELETE these instruction lines before uploading (keep header row)',
+      '# ──────────────────────────────────────────────────────────────────',
+    ],
+    headers: ['Student_Name','Programme','Company_Name','Package_LPA','Month_Year','Placement_Type'],
+    sample:   ['Student Full Name','BSc Computer Science','Example Company Pvt Ltd','3.5','01/2025','Campus'],
+  },
+  fdps: {
+    filename: 'AQAR_Template_FDPs_6.3.4.csv',
+    instructions: [
+      '# AQAR 2024-25 | CSV Template: FDPs and Training Programmes (Metric 6.3.4)',
+      '# Institution: SKR & SKR Government College for Women (Autonomous) Kadapa',
+      '# HOW TO FILL:',
+      '#   - One FDP / programme per row',
+      '#   - Teacher_Name: Full name of teacher who attended',
+      '#   - Programme_Name: Full official title of the FDP / training',
+      '#   - Organising_Body: e.g. UGC-HRDC / CSIR / IIT Madras / State Govt',
+      '#   - Mode: Online / Offline / Hybrid',
+      '#   - Duration_Days: Whole number e.g. 5',
+      '#   - Month_Year: format MM/YYYY e.g. 07/2024',
+      '#   - DELETE these instruction lines before uploading (keep header row)',
+      '# ──────────────────────────────────────────────────────────────────',
+    ],
+    headers: ['Teacher_Name','Programme_Name','Organising_Body','Mode','Duration_Days','Month_Year'],
+    sample:   ['Dr. Example Teacher','FDP on Research Methodology','UGC-HRDC Tirupati','Offline','5','07/2024'],
+  },
+  admission_programmewise: {
+    filename: 'AQAR_Template_Admissions_Programmewise_2.1.csv',
+    instructions: [
+      '# AQAR 2024-25 | CSV Template: Programme-wise Admissions (Metrics 2.1.1.1 & 2.1.2)',
+      '# Institution: SKR & SKR Government College for Women (Autonomous) Kadapa',
+      '# FILL BY: Admission Section In-charge only',
+      '# HOW TO FILL:',
+      '#   - One programme per row',
+      '#   - Programme_Name: Official name e.g. BSc Computer Science',
+      '#   - Sanctioned_Intake: Total seats approved by government',
+      '#   - Students_Admitted: Actual students admitted this year',
+      '#   - SC / ST / OBC_BC / PWD / Women: Whole numbers only (no commas)',
+      '#   - SC+ST+OBC_BC should be <= Students_Admitted',
+      '#   - Do NOT add a totals row at the bottom',
+      '#   - DELETE these instruction lines before uploading (keep header row)',
+      '# ──────────────────────────────────────────────────────────────────',
+    ],
+    headers: ['Programme_Name','Sanctioned_Intake','Students_Admitted','SC','ST','OBC_BC','PWD','Women'],
+    sample:   ['BSc Computer Science','60','55','18','4','22','1','55'],
+  },
+};
+
+function dlCSVTemplate(key) {
+  const tpl = CSV_TEMPLATES_DATA[key];
+  if (!tpl) { showToast('⚠️ Template not found: ' + key); return; }
+  const rows = [
+    ...tpl.instructions,
+    '',
+    tpl.headers.join(','),
+    tpl.sample.map(v => '"' + v.replace(/"/g, '""') + '"').join(','),
+    tpl.headers.map(() => '').join(','),
+    tpl.headers.map(() => '').join(','),
+    tpl.headers.map(() => '').join(','),
+    tpl.headers.map(() => '').join(','),
+    tpl.headers.map(() => '').join(','),
+  ];
+  const csv = '\uFEFF' + rows.join('\r\n');
+  const a = document.createElement('a');
+  a.href = 'data:text/csv;charset=utf-8,' + encodeURIComponent(csv);
+  a.download = tpl.filename;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  showToast('📥 Downloaded: ' + tpl.filename);
+}
+
+// v4.1 — SECTION FORMS URL MANAGEMENT
 // ════════════════════════════════════════════════════════
 const SECTION_URL_KEYS = {
   scholarship: 'aqar_schol_form_url',
   exam:        'aqar_exam_form_url',
   adm:         'aqar_adm_form_url',
 };
+
+// ─── CSV Template Download (v4.1) ───────────────────────────────────────────
+// All 6 templates are generated in-browser as Blob downloads.
+// No server needed — works even offline.
+const CSV_TEMPLATES = {
+  fellowships: {
+    filename: 'AQAR_Template_Fellowships_3.1.3.csv',
+    rows: [
+      '# AQAR 2024-25 | CSV Template: Teacher Fellowships (Metric 3.1.3)',
+      '# Institution: SKR & SKR Government College for Women (Autonomous) Kadapa',
+      '# Instructions:',
+      '#  1. Do NOT change column headers (Row 8 below)',
+      '#  2. Delete ALL rows starting with # before uploading',
+      '#  3. One fellowship per row',
+      '#  4. Fellowship_Name: official name e.g. UGC-BSR / DST-INSPIRE / CSIR-JRF',
+      '#  5. Teacher_Name: Full name as per service records',
+      '#  6. Awarding_Agency: UGC / DST / CSIR / ICMR / DBT / State Govt etc.',
+      '#  7. Month_Year: format MM/YYYY e.g. 06/2024',
+      '#  8. Amount_Lakhs: in Lakhs e.g. 0.25 — enter 0 if not applicable',
+      '# ─────────────────────────────────────────────────────────',
+      'Fellowship_Name,Teacher_Name,Awarding_Agency,Month_Year,Amount_Lakhs,Remarks',
+      '"UGC-BSR Research Fellowship","Dr. Example Name","UGC","06/2024","0.25","Sample row — replace with your data"',
+    ]
+  },
+  publications: {
+    filename: 'AQAR_Template_Publications_3.4.3.csv',
+    rows: [
+      '# AQAR 2024-25 | CSV Template: CARE Journal Publications (Metric 3.4.3)',
+      '# Institution: SKR & SKR Government College for Women (Autonomous) Kadapa',
+      '# Instructions:',
+      '#  1. Do NOT change column headers',
+      '#  2. Delete ALL rows starting with # before uploading',
+      '#  3. One paper per row',
+      '#  4. ISSN: format XXXX-XXXX e.g. 0975-1234',
+      '#  5. Year: 4-digit year e.g. 2024',
+      '#  6. Scopus_Indexed: Yes or No only',
+      '#  7. DOI: e.g. 10.1234/example — enter NA if not available',
+      '# ─────────────────────────────────────────────────────────',
+      'Paper_Title,Journal_Name,ISSN,Year,Teacher_Name,Scopus_Indexed,DOI',
+      '"Title of the Research Paper","Journal of Example Science","0975-1234","2024","Dr. Example Name","Yes","10.1234/example"',
+    ]
+  },
+  mous: {
+    filename: 'AQAR_Template_MoUs_3.7.2.csv',
+    rows: [
+      '# AQAR 2024-25 | CSV Template: Functional MoUs (Metric 3.7.2)',
+      '# Institution: SKR & SKR Government College for Women (Autonomous) Kadapa',
+      '# Instructions:',
+      '#  1. Do NOT change column headers',
+      '#  2. Delete ALL rows starting with # before uploading',
+      '#  3. One MoU per row — list only ACTIVE MoUs',
+      '#  4. MoU_Date: format DD/MM/YYYY e.g. 15/08/2024',
+      '#  5. Status: Active or Completed — exact spelling',
+      '#  6. Duration_Years: number only e.g. 3',
+      '# ─────────────────────────────────────────────────────────',
+      'Institution_Industry,Nature_of_Activity,Students_Benefitted,MoU_Date,Status,Duration_Years',
+      '"Example Industries Pvt Ltd","Student Internship and Training","45","15/08/2024","Active","3"',
+    ]
+  },
+  placements: {
+    filename: 'AQAR_Template_Placements_5.2.1.csv',
+    rows: [
+      '# AQAR 2024-25 | CSV Template: Student Placements (Metric 5.2.1)',
+      '# Institution: SKR & SKR Government College for Women (Autonomous) Kadapa',
+      '# Instructions:',
+      '#  1. Do NOT change column headers',
+      '#  2. Delete ALL rows starting with # before uploading',
+      '#  3. One student per row',
+      '#  4. Programme: full name e.g. BSc Computer Science',
+      '#  5. Package_LPA: number only in Lakhs Per Annum e.g. 3.5 (no ₹ symbol)',
+      '#  6. Month_Year: format MM/YYYY e.g. 01/2025',
+      '#  7. Placement_Type: Campus / Off-Campus / Government — exact spelling',
+      '# ─────────────────────────────────────────────────────────',
+      'Student_Name,Programme,Company_Name,Package_LPA,Month_Year,Placement_Type',
+      '"Student Full Name","BSc Computer Science","Example Company Pvt Ltd","3.5","01/2025","Campus"',
+    ]
+  },
+  fdps: {
+    filename: 'AQAR_Template_FDPs_6.3.4.csv',
+    rows: [
+      '# AQAR 2024-25 | CSV Template: FDPs and Training Programmes (Metric 6.3.4)',
+      '# Institution: SKR & SKR Government College for Women (Autonomous) Kadapa',
+      '# Instructions:',
+      '#  1. Do NOT change column headers',
+      '#  2. Delete ALL rows starting with # before uploading',
+      '#  3. One teacher-programme per row',
+      '#     (If one teacher attended 3 FDPs, enter 3 separate rows)',
+      '#  4. Mode: Online / Offline / Hybrid — exact spelling',
+      '#  5. Duration_Days: number only e.g. 5',
+      '#  6. Month_Year: format MM/YYYY e.g. 07/2024',
+      '# ─────────────────────────────────────────────────────────',
+      'Teacher_Name,Programme_Name,Organising_Body,Mode,Duration_Days,Month_Year',
+      '"Dr. Example Teacher","FDP on Research Methodology","UGC-HRDC Tirupati","Offline","5","07/2024"',
+    ]
+  },
+  admission_programmewise: {
+    filename: 'AQAR_Template_Admissions_Programmewise_2.1.csv',
+    rows: [
+      '# AQAR 2024-25 | CSV Template: Programme-wise Admissions (Metrics 2.1.1.1 & 2.1.2)',
+      '# Institution: SKR & SKR Government College for Women (Autonomous) Kadapa',
+      '# Instructions:',
+      '#  1. Do NOT change column headers',
+      '#  2. Delete ALL rows starting with # before uploading',
+      '#  3. One programme per row',
+      '#  4. All values must be whole numbers (no decimals)',
+      '#  5. SC+ST+OBC_BC+PWD must be <= Students_Admitted',
+      '#  6. Do NOT add a Totals row at the bottom',
+      '#  7. Programme_Name: use official programme names',
+      '# ─────────────────────────────────────────────────────────',
+      'Programme_Name,Sanctioned_Intake,Students_Admitted,SC,ST,OBC_BC,PWD,Women',
+      '"BSc Computer Science","60","55","18","4","22","1","55"',
+    ]
+  }
+};
+
+function downloadCSV(key) {
+  const tpl = CSV_TEMPLATES[key];
+  if (!tpl) { showToast('⚠️ Template not found'); return; }
+  // Add 10 empty data rows after sample
+  const emptyRow = tpl.rows[tpl.rows.length-1].split(',').map(() => '""').join(',');
+  const allRows = [...tpl.rows, ...Array(10).fill(emptyRow)];
+  const csvContent = '\uFEFF' + allRows.join('\r\n'); // BOM for Excel UTF-8
+  const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = tpl.filename;
+  document.body.appendChild(a); a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+  showToast('⬇ Downloaded: ' + tpl.filename);
+}
 
 function openSectionForm(type) {
   const url = localStorage.getItem(SECTION_URL_KEYS[type]);
