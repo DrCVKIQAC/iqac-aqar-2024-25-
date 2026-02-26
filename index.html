@@ -2,16 +2,17 @@
 <html lang="en">
 <!--
 ╔══════════════════════════════════════════════════════════════════════╗
-║  IQAC DATA COLLECTOR v3.1 — AQAR 2024-25 [INTEGRATED EDITION]                           ║
+║  IQAC DATA COLLECTOR v4.0 — AQAR 2024-25 [MULTI-SECTION EDITION]                      ║
 ║  Developer : Venkata Krishnaveni Chennuru                           ║
 ║  Role      :Dept. of Computer Science & IQAC Coordinator                ║
 ║  College   : SKR & SKR GCW(A), Kadapa, AP 516001                   ║
 ║  License   : MIT + CC BY-NC 4.0  |  © 2026 Free OER               ║
+║  v4.0 NEW  : Separate forms for Scholarship/Exam/Admission sections ║
 ╚══════════════════════════════════════════════════════════════════════╝
 -->
 <head>
 <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>IQAC Data Collector v2.0 | AQAR 2024-25 | SKR & SKR GCW(A)</title>
+<title>IQAC Data Collector v4.0 | AQAR 2024-25 | SKR & SKR GCW(A)</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Nunito:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet"/>
 <style>
 :root{--cream:#faf8f4;--warm:#f4f0e8;--warm2:#ede8dd;--border:#ddd8cc;--border2:#c8c0b0;--ink:#1e1a14;--ink2:#3d3628;--ink3:#7a7060;--teal:#1a6b5a;--teal2:#0d5244;--teal-lt:#e8f4f1;--teal-md:#c0dfd8;--blue:#1e4d8c;--blue-lt:#e8eef8;--amber:#c47c1a;--amber-lt:#fdf3e3;--red:#b03a2e;--red-lt:#fde8e6;--green:#1e7a4a;--green-lt:#e8f7ee;--purple:#6b3fa0;--purple-lt:#f0eaf8;--sh:0 2px 16px rgba(30,26,20,.08);--sh2:0 8px 40px rgba(30,26,20,.12)}
@@ -28,6 +29,33 @@ body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--ink);mi
 .nb{font-family:'Nunito',sans-serif;font-size:11px;font-weight:700;padding:5px 10px;border-radius:6px;border:none;cursor:pointer;background:transparent;color:var(--ink3);transition:all .18s}
 .nb:hover{background:var(--teal-lt);color:var(--teal)}
 .nb.active{background:var(--teal);color:#fff}
+/* Section Forms Panel */
+.sf-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;padding:24px 20px;max-width:1100px;margin:0 auto}
+.sf-card{background:#fff;border:2px solid var(--border);border-radius:13px;padding:20px;box-shadow:var(--sh);transition:all .2s;position:relative}
+.sf-card:hover{transform:translateY(-3px);box-shadow:var(--sh2)}
+.sf-card.hod{border-color:var(--teal-md);background:var(--teal-lt)}
+.sf-card.schol{border-color:#b8c9e4;background:var(--blue-lt)}
+.sf-card.exam{border-color:#e0c080;background:var(--amber-lt)}
+.sf-card.adm{border-color:#a8d5b8;background:var(--green-lt)}
+.sf-icon{font-size:28px;margin-bottom:10px;display:block}
+.sf-title{font-family:"Cormorant Garamond",serif;font-size:18px;font-weight:700;color:var(--ink);margin-bottom:5px}
+.sf-who{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;margin-bottom:8px;padding:3px 8px;border-radius:4px;display:inline-block}
+.sf-card.hod .sf-who{background:var(--teal);color:#fff}
+.sf-card.schol .sf-who{background:var(--blue);color:#fff}
+.sf-card.exam .sf-who{background:var(--amber);color:#fff}
+.sf-card.adm .sf-who{background:var(--green);color:#fff}
+.sf-desc{font-size:12px;color:var(--ink3);line-height:1.65;margin-bottom:12px}
+.sf-fields{background:rgba(255,255,255,.7);border-radius:7px;padding:9px 12px;margin-bottom:12px;font-size:11px;color:var(--ink2);line-height:1.8}
+.sf-removed{background:#fde8e6;border-radius:7px;padding:7px 11px;margin-bottom:12px;font-size:11px;color:var(--red);line-height:1.7}
+.sf-btn-row{display:flex;gap:7px;flex-wrap:wrap}
+.sf-status{position:absolute;top:14px;right:14px;font-size:10px;font-weight:700;padding:3px 8px;border-radius:4px;font-family:"Fira Code",monospace}
+.sf-status.ok{background:var(--green-lt);color:var(--green)}
+.sf-status.pending{background:var(--amber-lt);color:var(--amber)}
+.sf-hdr{padding:28px 20px 10px;max-width:1100px;margin:0 auto}
+.sf-hdr h2{font-family:"Cormorant Garamond",serif;font-size:26px;font-weight:700;color:var(--ink);margin-bottom:6px}
+.sf-hdr h2 span{color:var(--teal)}
+.sf-hdr p{font-size:13px;color:var(--ink3);line-height:1.7;max-width:680px}
+.sf-notice{background:#fff3cd;border:1.5px solid #ffc107;border-radius:9px;padding:12px 16px;margin:0 auto 4px;max-width:1060px;font-size:12.5px;color:#7a5500;line-height:1.7}
 .ds{background:linear-gradient(90deg,var(--teal-lt),var(--blue-lt),var(--amber-lt));border-bottom:1px solid var(--border);padding:5px 18px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:4px}
 .dl{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
 .dby{font-family:'Fira Code',monospace;font-size:8.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--teal)}
@@ -357,7 +385,7 @@ body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--ink);mi
   <div class="logo-wrap">
     <div class="logo-ic">📋</div>
     <div>
-      <div class="logo-t">IQAC <span>Data Collector</span> <span style="font-size:10.5px;color:var(--amber);font-family:'Fira Code',monospace;">v2.0</span></div>
+      <div class="logo-t">IQAC <span>Data Collector</span> <span style="font-size:10.5px;color:var(--amber);font-family:'Fira Code',monospace;">v4.0</span></div>
       <div class="logo-s">AQAR 2024-25 · SKR & SKR GCW(A) · Kadapa</div>
     </div>
   </div>
@@ -378,7 +406,7 @@ body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--ink);mi
     <button class="nb nb-pdf" onclick="downloadPDF()">🖨 PDF</button>
     <button class="nb nb-naac" onclick="openNAAC()">📊 Templates</button>
     <button class="nb nb-sync" onclick="openSync()">🔄 Sync Sheet</button>
-    <button class="nb nb-hod" onclick="window.open('https://forms.gle/6DBaRZndVtpk8Ysk7','_blank')">📋 HOD Form</button>
+    <button class="nb" style="background:var(--blue);color:#fff" onclick="go('sectionforms')">📋 Section Forms</button>
   </div>
 </div>
 
@@ -1004,6 +1032,140 @@ body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--ink);mi
   </div>
 </div>
 
+<!-- SECTION FORMS -->
+<div class="sc" id="sc-sectionforms">
+  <div class="sf-hdr">
+    <h2>📋 <span>Section Forms</span> — Data Collection by Section</h2>
+    <p>AQAR 2024-25 data is now collected from the <strong>right source</strong>. Scholarship, Examination, and Admission data are no longer asked from HODs — they are collected directly from the relevant section in-charges through dedicated forms. Each form flows automatically into the IQAC Dashboard via Sync.</p>
+  </div>
+
+  <div class="sf-notice">
+    <strong>📌 What changed in v4.0:</strong>
+    Scholarship questions removed from HOD Form → collected via <strong>Scholarship Section Form</strong> |
+    Exam result questions removed → collected via <strong>Examination Section Form</strong> |
+    Admission + caste-wise data removed → collected via <strong>Admission Section Form</strong>.<br>
+    HODs now only fill what they actually know — making data more accurate and faster to collect.
+  </div>
+
+  <div class="sf-grid">
+
+    <!-- HOD Form Card -->
+    <div class="sf-card hod">
+      <span id="hod-sf-status" class="sf-status pending">⏳ 5/24 Pending</span>
+      <span class="sf-icon">👩‍🏫</span>
+      <div class="sf-title">HOD Department Form</div>
+      <span class="sf-who">Fill by: Each HOD (24 departments)</span>
+      <div class="sf-desc">Each Head of Department fills this form once. Contains only department-level academic data that only the HOD knows — teaching, research, infrastructure, placement.</div>
+      <div class="sf-fields">
+        <strong>Covers:</strong><br>
+        ✅ Value-Added Courses (1.3.2 – 1.3.4)<br>
+        ✅ Teacher Profile — PhD, Experience (2.4.1 – 2.4.3)<br>
+        ✅ Research, Publications, MoUs (3.x)<br>
+        ✅ ICT Infrastructure (4.1.3, 4.3.2)<br>
+        ✅ Placement & Career Guidance (5.2.x)<br>
+        ✅ FDPs & Training (6.3.x)
+      </div>
+      <div class="sf-removed">
+        ❌ Removed: Scholarship data → now in Scholarship Form<br>
+        ❌ Removed: Exam results → now in Examination Form<br>
+        ❌ Removed: Caste-wise admission → now in Admission Form
+      </div>
+      <div class="sf-btn-row">
+        <button class="bs bt" onclick="window.open('https://forms.gle/6DBaRZndVtpk8Ysk7','_blank')">↗ Open HOD Form</button>
+        <button class="bs bo" onclick="copyToClip('https://forms.gle/6DBaRZndVtpk8Ysk7','HOD Form URL')">📋 Copy Link</button>
+        <button class="bs bg2" onclick="go('status')">📊 View Status</button>
+      </div>
+    </div>
+
+    <!-- Scholarship Section Form Card -->
+    <div class="sf-card schol">
+      <span id="schol-sf-status" class="sf-status pending">⏳ Pending</span>
+      <span class="sf-icon">📚</span>
+      <div class="sf-title">Scholarship Section Form</div>
+      <span class="sf-who">Fill by: Scholarship In-charge Officer</span>
+      <div class="sf-desc">To be filled <strong>once</strong> by the Scholarship Section in-charge. Contains college-wide scholarship totals — the scholarship office has the official figures, not individual HODs.</div>
+      <div class="sf-fields">
+        <strong>Covers (Metric 5.1.1 & 5.1.2):</strong><br>
+        ✅ Total students with Govt Scholarships<br>
+        ✅ SC / ST / OBC breakdown<br>
+        ✅ NGO / Institutional Scholarships<br>
+        ✅ Total scholarship amount disbursed (₹)
+      </div>
+      <div class="sf-btn-row">
+        <button class="bs bt" style="background:var(--blue)" id="schol-open-btn" onclick="openSectionForm('scholarship')">↗ Open Form</button>
+        <button class="bs bo" style="color:var(--blue);border-color:var(--blue)" id="schol-copy-btn" onclick="copySectionFormUrl('scholarship')">📋 Copy Link</button>
+        <button class="bs bg2" onclick="setSectionFormUrl('scholarship')">⚙️ Set URL</button>
+      </div>
+    </div>
+
+    <!-- Examination Section Form Card -->
+    <div class="sf-card exam">
+      <span id="exam-sf-status" class="sf-status pending">⏳ Pending</span>
+      <span class="sf-icon">📝</span>
+      <div class="sf-title">Examination Section Form</div>
+      <span class="sf-who">Fill by: Examination Section In-charge</span>
+      <div class="sf-desc">To be filled <strong>once</strong> by the Examination Section in-charge. Contains college-wide exam result data — only the exam section has official pass/appear statistics.</div>
+      <div class="sf-fields">
+        <strong>Covers (Metrics 2.5, 2.6, EP 2.3):</strong><br>
+        ✅ Final Year students Passed & Appeared<br>
+        ✅ Days from exam to result declaration<br>
+        ✅ Student grievances against evaluation<br>
+        ✅ Total students appeared (EP 2.3)
+      </div>
+      <div class="sf-btn-row">
+        <button class="bs bt" style="background:var(--amber)" id="exam-open-btn" onclick="openSectionForm('exam')">↗ Open Form</button>
+        <button class="bs bo" style="color:var(--amber);border-color:var(--amber)" id="exam-copy-btn" onclick="copySectionFormUrl('exam')">📋 Copy Link</button>
+        <button class="bs bg2" onclick="setSectionFormUrl('exam')">⚙️ Set URL</button>
+      </div>
+    </div>
+
+    <!-- Admission Section Form Card -->
+    <div class="sf-card adm">
+      <span id="adm-sf-status" class="sf-status pending">⏳ Pending</span>
+      <span class="sf-icon">🎓</span>
+      <div class="sf-title">Admission Section Form</div>
+      <span class="sf-who">Fill by: Admission In-charge Officer</span>
+      <div class="sf-desc">To be filled <strong>once</strong> by the Admission Section in-charge. Contains total admission figures and official caste-wise breakdown — only the admission office has this data correctly.</div>
+      <div class="sf-fields">
+        <strong>Covers (Metrics 2.1, EP 4.1):</strong><br>
+        ✅ Total students admitted (2.1.1.1)<br>
+        ✅ Reserved seats filled (2.1.2)<br>
+        ✅ SC / ST / OBC / PWD / Women breakdown<br>
+        ✅ Programme-wise caste data table
+      </div>
+      <div class="sf-btn-row">
+        <button class="bs bt" style="background:var(--green)" id="adm-open-btn" onclick="openSectionForm('adm')">↗ Open Form</button>
+        <button class="bs bo" style="color:var(--green);border-color:var(--green)" id="adm-copy-btn" onclick="copySectionFormUrl('adm')">📋 Copy Link</button>
+        <button class="bs bg2" onclick="setSectionFormUrl('adm')">⚙️ Set URL</button>
+      </div>
+    </div>
+
+  </div><!-- /sf-grid -->
+
+  <!-- Instructions box -->
+  <div style="max-width:1060px;margin:0 auto 28px;padding:0 20px">
+    <div style="background:#fff;border:1px solid var(--border);border-radius:11px;padding:20px 22px;box-shadow:var(--sh)">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:700;color:var(--ink);margin-bottom:12px;padding-bottom:8px;border-bottom:2px solid var(--teal-lt)">
+        🛠️ How to Set Up the Section Forms (One-time Setup)
+      </div>
+      <div style="font-size:12.5px;color:var(--ink2);line-height:2">
+        <strong>Step 1 — Create the 4 forms (IQAC Coordinator does this once):</strong><br>
+        Open Google Apps Script → paste <code style="background:var(--warm2);padding:1px 6px;border-radius:3px">AQAR_Master_Script_v4.gs</code> → Run these functions in order:<br>
+        &nbsp;&nbsp;→ <code style="background:var(--warm2);padding:1px 6px;border-radius:3px">createHODForm()</code> — creates trimmed HOD form<br>
+        &nbsp;&nbsp;→ <code style="background:var(--warm2);padding:1px 6px;border-radius:3px">createScholarshipForm()</code> — creates scholarship section form<br>
+        &nbsp;&nbsp;→ <code style="background:var(--warm2);padding:1px 6px;border-radius:3px">createExaminationForm()</code> — creates examination section form<br>
+        &nbsp;&nbsp;→ <code style="background:var(--warm2);padding:1px 6px;border-radius:3px">createAdmissionForm()</code> — creates admission section form<br>
+        &nbsp;&nbsp;→ <code style="background:var(--warm2);padding:1px 6px;border-radius:3px">setupAll()</code> — wires all triggers<br><br>
+        <strong>Step 2 — Share the form links:</strong><br>
+        Copy each form URL from Apps Script logs → paste in the ⚙️ Set URL buttons above → share links with respective in-charges<br><br>
+        <strong>Step 3 — Deploy Web App and Sync:</strong><br>
+        Deploy the script as a Web App → paste URL in the 🔄 Sync Sheet panel → click Sync → all 4 sources merge automatically
+      </div>
+    </div>
+  </div>
+
+</div><!-- /sc-sectionforms -->
+
 <!-- STATUS -->
 <div class="sc" id="sc-status">
   <div class="dw">
@@ -1037,10 +1199,10 @@ body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--ink);mi
       <div class="ar">Assistant Professor, Computer Science · IQAC Coordinator</div>
       <div class="ai">SKR &amp; SKR Government College for Women (Autonomous)</div>
       <div class="ai">Kadapa, Andhra Pradesh, India — 516001</div>
-      <div style="margin-top:9px;font-family:'Fira Code',monospace;font-size:10px;color:var(--teal);">IQAC Data Collector v2.0 · AQAR 2024-25 Edition · Built in 2026</div>
+      <div style="margin-top:9px;font-family:'Fira Code',monospace;font-size:10px;color:var(--teal);">IQAC Data Collector v4.0 · AQAR 2024-25 · Multi-Section Edition · Built in 2026</div>
     </div>
     <div class="acg">
-      <div class="acd"><div class="act">📋 About This Tool</div><p>IQAC Data Collector v2.0 is purpose-built for AQAR 2024-25 at SKR &amp; SKR GCW(A), Kadapa. All 2023-24 data pre-filled as baseline. Every NAAC metric mapped to exact codes from the official Data Template for Autonomous Colleges.</p></div>
+      <div class="acd"><div class="act">📋 About This Tool</div><p>IQAC Data Collector v4.0 — Multi-Section Edition. Purpose-built for AQAR 2024-25 at SKR &amp; SKR GCW(A), Kadapa. v4.0 introduces separate forms for Scholarship, Examination, and Admission sections — eliminating data-at-wrong-source errors. All 2023-24 data pre-filled as baseline.</p></div>
       <div class="acd"><div class="act">🏛️ Institution</div><p><strong>Name:</strong> SKR &amp; SKR GCW(A), Kadapa</p><p><strong>NAAC Cycle 3:</strong> B (2.46) · Valid to 07/07/2028</p><p><strong>Autonomous:</strong> Since 14/10/2024</p><p><strong>Programmes:</strong> 16 (14 UG + 2 PG)</p><p><strong>Students:</strong> 1689 · Teachers: 57</p><p><strong>IQAC Est:</strong> 15/06/2007</p></div>
       <div class="acd"><div class="act">💾 Data &amp; Privacy</div><p>All data is saved locally in your browser's localStorage. No data is sent to any server. Works completely offline. Export to CSV for official submission preparation.</p></div>
       <div class="acd"><div class="act">📜 License</div><p>Copyright © 2026 <strong>Venkata Krishnaveni Chennuru</strong></p><br/><p>Dual licensed: MIT (code) + CC BY-NC 4.0 (content). Free to use with attribution. Developer credits must be retained in all copies.</p><p><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0 →</a></p></div>
@@ -1093,7 +1255,7 @@ function go(id) {
   document.querySelectorAll('.nb').forEach(b=>b.classList.remove('active'));
   const el = document.getElementById('sc-'+id);
   if(el) el.classList.add('active');
-  const nmap = {home:'Home',dash:'Dashboard',parta:'Part',ep:'EP',c1:'C1',c2:'C2',c3:'C3',c4:'C4',c5:'C5',c6:'C6',c7:'C7',about:'ℹ',status:'Dashboard'};
+  const nmap = {home:'Home',dash:'Dashboard',parta:'Part',ep:'EP',c1:'C1',c2:'C2',c3:'C3',c4:'C4',c5:'C5',c6:'C6',c7:'C7',about:'ℹ',status:'Dashboard',sectionforms:'Section'};
   if(nmap[id]) document.querySelectorAll('.nb').forEach(b=>{if(b.textContent.trim().startsWith(nmap[id].substring(0,2))) b.classList.add('active');});
   window.scrollTo(0,0);
   if(id==='status') buildDeptTable();
@@ -1805,13 +1967,10 @@ async function syncNow() {
 
     // Map API fields → form field label fragments
     const syncMap = [
-      [d.admitted,       '2.1.1.1 Students Admitted'],
-      [d.reserved,       '2.1.2 Reserved Category'],
+      // HOD form fields
       [d.teachers_total, '2.4.1 Full-time Teachers Against'],
       [d.phd_teachers,   '2.4.2 Teachers with PhD'],
       [d.experience,     '2.4.3 Total Teaching Experience'],
-      [d.passed,         '2.6.3.1 Final Year Students Passed'],
-      [d.appeared,       'Final Year Students Appeared'],
       [d.fellowships,    '3.1.3 Teachers Awarded'],
       [d.workshops,      'Total Such Workshops'],
       [d.care_papers,    '3.4.3 Papers in CARE'],
@@ -1823,8 +1982,6 @@ async function syncNow() {
       [d.mous,           '3.7.2 Functional MoUs'],
       [d.ict_classrooms, '4.1.3 ICT-Enabled'],
       [d.computers,      '4.3.2 Computers (for ratio)'],
-      [d.govt_schol,     '5.1.1 Students with Govt'],
-      [d.ngo_schol,      '5.1.2 Students with NGO'],
       [d.career_guid,    '5.1.4 Students in Career'],
       [d.placed,         '5.2.1 Outgoing Students Placed'],
       [d.higher_edu,     '5.2.2 Students'],
@@ -1836,6 +1993,17 @@ async function syncNow() {
       [d.vac,            '1.3.2 Value-Added Courses'],
       [d.vac_students,   '1.3.3 Students Enrolled in Value'],
       [d.internships,    '1.3.4 Students in Internships'],
+      // Scholarship Section fields
+      [d.govt_schol,     '5.1.1 Students with Govt'],
+      [d.ngo_schol,      '5.1.2 Students with NGO'],
+      // Examination Section fields
+      [d.passed,         '2.6.3.1 Final Year Students Passed'],
+      [d.appeared,       'Final Year Students Appeared'],
+      [d.days_result,    '2.5.1 Days from Exam'],
+      [d.grievances,     '2.5.2 Student Grievances'],
+      // Admission Section fields
+      [d.admitted,       '2.1.1.1 Students Admitted'],
+      [d.reserved,       '2.1.2 Reserved Category'],
     ];
 
     syncMap.forEach(([val, labelFrag]) => {
@@ -1852,8 +2020,11 @@ async function syncNow() {
     res.style.color = 'var(--green)';
     res.innerHTML = '✅ Sync complete! ' + filled + ' fields updated from Google Sheet.<br>'
       + '📊 HOD submissions: <strong>' + d.submitted_count + '/24 departments (' + pct + '%)</strong><br>'
+      + '📚 Scholarship Section: <strong>' + (d.schol_submitted ? '✅ Submitted' : '⏳ Pending') + '</strong> · '
+      + '📝 Examination Section: <strong>' + (d.exam_submitted ? '✅ Submitted' : '⏳ Pending') + '</strong> · '
+      + '🎓 Admission Section: <strong>' + (d.adm_submitted ? '✅ Submitted' : '⏳ Pending') + '</strong><br>'
       + (d.pending_depts && d.pending_depts.length
-          ? '⏳ Still pending: ' + d.pending_depts.slice(0,5).join(', ')
+          ? '⏳ HOD pending: ' + d.pending_depts.slice(0,5).join(', ')
             + (d.pending_depts.length > 5 ? ' + ' + (d.pending_depts.length-5) + ' more' : '')
           : '🎉 All 24 departments have submitted!')
       + '<br><small>Last updated: ' + (d.last_updated || stamp) + '</small>';
@@ -1863,6 +2034,7 @@ async function syncNow() {
     tim.textContent = d.last_updated || stamp;
 
     showToast('🔄 Sheet synced! ' + filled + ' fields updated.');
+    updateSectionStatusBadges(d);
 
   } catch (err) {
     res.style.background = 'var(--red-lt)';
@@ -1886,6 +2058,90 @@ document.addEventListener('DOMContentLoaded', () => {
     if (dot) dot.className = 'sync-dot pending';
   }
 });
+
+// ════════════════════════════════════════════════════════
+// v4.0 — SECTION FORMS URL MANAGEMENT
+// ════════════════════════════════════════════════════════
+const SECTION_URL_KEYS = {
+  scholarship: 'aqar_schol_form_url',
+  exam:        'aqar_exam_form_url',
+  adm:         'aqar_adm_form_url',
+};
+
+function openSectionForm(type) {
+  const url = localStorage.getItem(SECTION_URL_KEYS[type]);
+  if (!url) { setSectionFormUrl(type); return; }
+  window.open(url, '_blank');
+}
+
+function copySectionFormUrl(type) {
+  const url = localStorage.getItem(SECTION_URL_KEYS[type]);
+  if (!url) { setSectionFormUrl(type); return; }
+  copyToClip(url, ({ scholarship:'Scholarship', exam:'Examination', adm:'Admission' }[type]) + ' Form URL');
+}
+
+function setSectionFormUrl(type) {
+  const label = { scholarship:'Scholarship Section', exam:'Examination Section', adm:'Admission Section' }[type];
+  const current = localStorage.getItem(SECTION_URL_KEYS[type]) || '';
+  const url = prompt('Paste the Google Form URL for ' + label + ':\n(You get this URL after running create' + type.charAt(0).toUpperCase() + type.slice(1) + 'Form() in Apps Script)', current);
+  if (url && url.startsWith('https://')) {
+    localStorage.setItem(SECTION_URL_KEYS[type], url.trim());
+    showToast('✅ ' + label + ' URL saved!');
+    updateSectionFormButtons();
+  } else if (url !== null) {
+    showToast('⚠️ Invalid URL — must start with https://');
+  }
+}
+
+function updateSectionFormButtons() {
+  ['scholarship','exam','adm'].forEach(type => {
+    const url = localStorage.getItem(SECTION_URL_KEYS[type]);
+    const openBtn = document.getElementById(type + '-open-btn');
+    const copyBtn = document.getElementById(type + '-copy-btn');
+    if (openBtn) openBtn.onclick = url ? () => window.open(url,'_blank') : () => setSectionFormUrl(type);
+    if (copyBtn) copyBtn.onclick = url ? () => copyToClip(url, type + ' Form URL') : () => setSectionFormUrl(type);
+  });
+}
+
+function copyToClip(text, label) {
+  navigator.clipboard.writeText(text)
+    .then(() => showToast('📋 ' + (label||'Link') + ' copied!'))
+    .catch(() => {
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      document.body.appendChild(ta); ta.select(); document.execCommand('copy');
+      document.body.removeChild(ta);
+      showToast('📋 ' + (label||'Link') + ' copied!');
+    });
+}
+
+// Update section form status badges when sync completes
+function updateSectionStatusBadges(d) {
+  const hodBadge  = document.getElementById('hod-sf-status');
+  const scholBadge = document.getElementById('schol-sf-status');
+  const examBadge  = document.getElementById('exam-sf-status');
+  const admBadge   = document.getElementById('adm-sf-status');
+
+  if (hodBadge && d.submitted_count !== undefined) {
+    const pct = Math.round(d.submitted_count/24*100);
+    hodBadge.textContent = d.submitted_count===24 ? '✅ All 24 Submitted' : '⏳ ' + d.submitted_count + '/24 Submitted';
+    hodBadge.className = 'sf-status ' + (d.submitted_count===24 ? 'ok' : 'pending');
+  }
+  if (scholBadge) {
+    scholBadge.textContent = d.schol_submitted ? '✅ Submitted' : '⏳ Pending';
+    scholBadge.className = 'sf-status ' + (d.schol_submitted ? 'ok' : 'pending');
+  }
+  if (examBadge) {
+    examBadge.textContent = d.exam_submitted ? '✅ Submitted' : '⏳ Pending';
+    examBadge.className = 'sf-status ' + (d.exam_submitted ? 'ok' : 'pending');
+  }
+  if (admBadge) {
+    admBadge.textContent = d.adm_submitted ? '✅ Submitted' : '⏳ Pending';
+    admBadge.className = 'sf-status ' + (d.adm_submitted ? 'ok' : 'pending');
+  }
+}
+
+document.addEventListener('DOMContentLoaded', updateSectionFormButtons);
 
 </script>
 
@@ -2081,31 +2337,46 @@ document.addEventListener('DOMContentLoaded', () => {
              font-size:13px;font-weight:600;display:none;line-height:1.6"></div>
       </div>
 
-      <!-- HOD Form link -->
-      <div style="background:var(--red-lt);border:1.5px solid #e8b0aa;border-radius:10px;padding:14px 18px;">
-        <h4 style="font-size:13px;font-weight:800;color:#8a2a20;margin-bottom:6px;">
-          📋 HOD Google Form — Share with all 24 HODs
+      <!-- Section Forms -->
+      <div style="background:var(--warm);border:1.5px solid var(--border2);border-radius:10px;padding:14px 18px;">
+        <h4 style="font-size:13px;font-weight:800;color:var(--ink2);margin-bottom:10px;">
+          📋 Share Section Forms with In-charges
         </h4>
-        <p style="font-size:12px;color:#3d3628;line-height:1.65;margin-bottom:8px;">
-          Share this link in your college WhatsApp group. Each HOD fills once.<br>
-          Responses flow automatically into the Google Sheet, and from there into this tool via Sync.
-        </p>
-        <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
-          <code style="background:#fff;border:1px solid #e8b0aa;border-radius:5px;
-                 padding:5px 10px;font-size:12px;color:#8a2a20;word-break:break-all;">
-            https://forms.gle/6DBaRZndVtpk8Ysk7
-          </code>
-          <button onclick="copyFormUrl()"
-            style="background:#b03a2e;color:#fff;border:none;border-radius:6px;
-                   padding:6px 14px;font-family:'Nunito',sans-serif;font-weight:700;
-                   font-size:12px;cursor:pointer;white-space:nowrap;">📋 Copy Link</button>
-          <a href="https://forms.gle/6DBaRZndVtpk8Ysk7" target="_blank"
-            style="background:#fff;color:#b03a2e;border:1.5px solid #b03a2e;border-radius:6px;
-                   padding:6px 14px;font-family:'Nunito',sans-serif;font-weight:700;
-                   font-size:12px;cursor:pointer;text-decoration:none;white-space:nowrap;">
-            ↗ Open Form
-          </a>
+        <div style="display:grid;gap:8px;">
+          <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:8px 10px;background:#fff;border-radius:7px;border:1px solid var(--border)">
+            <span style="font-size:13px">👩‍🏫</span>
+            <span style="font-size:12px;font-weight:700;color:var(--teal);flex:1">HOD Form (24 Departments)</span>
+            <button onclick="copyToClip('https://forms.gle/6DBaRZndVtpk8Ysk7','HOD Form URL')"
+              style="background:var(--teal);color:#fff;border:none;border-radius:5px;padding:4px 10px;font-family:'Nunito',sans-serif;font-weight:700;font-size:11px;cursor:pointer;">📋 Copy</button>
+            <a href="https://forms.gle/6DBaRZndVtpk8Ysk7" target="_blank"
+              style="background:#fff;color:var(--teal);border:1.5px solid var(--teal);border-radius:5px;padding:4px 10px;font-family:'Nunito',sans-serif;font-weight:700;font-size:11px;text-decoration:none;">↗ Open</a>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:8px 10px;background:#fff;border-radius:7px;border:1px solid var(--border)">
+            <span style="font-size:13px">📚</span>
+            <span style="font-size:12px;font-weight:700;color:var(--blue);flex:1">Scholarship Section Form</span>
+            <button onclick="copySectionFormUrl('scholarship')"
+              style="background:var(--blue);color:#fff;border:none;border-radius:5px;padding:4px 10px;font-family:'Nunito',sans-serif;font-weight:700;font-size:11px;cursor:pointer;">📋 Copy</button>
+            <button onclick="setSectionFormUrl('scholarship')"
+              style="background:#fff;color:var(--blue);border:1.5px solid var(--blue);border-radius:5px;padding:4px 10px;font-family:'Nunito',sans-serif;font-weight:700;font-size:11px;cursor:pointer;">⚙️ Set URL</button>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:8px 10px;background:#fff;border-radius:7px;border:1px solid var(--border)">
+            <span style="font-size:13px">📝</span>
+            <span style="font-size:12px;font-weight:700;color:var(--amber);flex:1">Examination Section Form</span>
+            <button onclick="copySectionFormUrl('exam')"
+              style="background:var(--amber);color:#fff;border:none;border-radius:5px;padding:4px 10px;font-family:'Nunito',sans-serif;font-weight:700;font-size:11px;cursor:pointer;">📋 Copy</button>
+            <button onclick="setSectionFormUrl('exam')"
+              style="background:#fff;color:var(--amber);border:1.5px solid var(--amber);border-radius:5px;padding:4px 10px;font-family:'Nunito',sans-serif;font-weight:700;font-size:11px;cursor:pointer;">⚙️ Set URL</button>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:8px 10px;background:#fff;border-radius:7px;border:1px solid var(--border)">
+            <span style="font-size:13px">🎓</span>
+            <span style="font-size:12px;font-weight:700;color:var(--green);flex:1">Admission Section Form</span>
+            <button onclick="copySectionFormUrl('adm')"
+              style="background:var(--green);color:#fff;border:none;border-radius:5px;padding:4px 10px;font-family:'Nunito',sans-serif;font-weight:700;font-size:11px;cursor:pointer;">📋 Copy</button>
+            <button onclick="setSectionFormUrl('adm')"
+              style="background:#fff;color:var(--green);border:1.5px solid var(--green);border-radius:5px;padding:4px 10px;font-family:'Nunito',sans-serif;font-weight:700;font-size:11px;cursor:pointer;">⚙️ Set URL</button>
+          </div>
         </div>
+        <p style="font-size:11px;color:var(--ink3);margin-top:8px;line-height:1.6">After creating forms via Apps Script, paste each form URL using the ⚙️ Set URL buttons. Links are saved in your browser.</p>
       </div>
 
       <!-- Not deployed yet help -->
