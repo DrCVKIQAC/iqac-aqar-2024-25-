@@ -561,19 +561,19 @@ function setupAll() {
   _addFormTrigger(CFG.examFormTitle,    'onExamSubmit');
   _addFormTrigger(CFG.admFormTitle,     'onAdmissionSubmit');
 
-  // Daily backup trigger
-  ScriptApp.newTrigger('backupAQARData')
-    .timeBased().atHour(0).everyDays(1).inTimezone('Asia/Kolkata').create();
+// Daily backup trigger disabled
+// ScriptApp.newTrigger('backupAQARData')
+//   .timeBased().atHour(0).everyDays(1).inTimezone('Asia/Kolkata').create();
 
-  // Daily consolidation
-  ScriptApp.newTrigger('consolidate')
-    .timeBased().atHour(6).everyDays(1).inTimezone('Asia/Kolkata').create();
+// Daily consolidation
+ScriptApp.newTrigger('consolidate')
+  .timeBased().atHour(6).everyDays(1).inTimezone('Asia/Kolkata').create();
 
-  // Create backup folder
-  const folders = DriveApp.getFoldersByName(CFG.backupFolderName);
-  if (!folders.hasNext()) DriveApp.createFolder(CFG.backupFolderName);
+// Create backup folder
+const folders = DriveApp.getFoldersByName(CFG.backupFolderName);
+if (!folders.hasNext()) DriveApp.createFolder(CFG.backupFolderName);
 
-  consolidate();
+consolidate();
 
   Logger.log('═══════════════════════════════════════════════════════');
   Logger.log('SETUP COMPLETE — v4.0 Multi-Section Edition');
