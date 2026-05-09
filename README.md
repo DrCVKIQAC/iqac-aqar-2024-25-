@@ -268,15 +268,17 @@ Licensed under [Creative Commons Attribution-NonCommercial 4.0 International (CC
 - **GitHub** for free hosting via GitHub Pages
 
 ---
+**Repository Note**:
+
+Developed and maintained by Dr. C. V. Krishnaveni for academic and IQAC automation purposes. This repository may be migrated to the author’s personal GitHub account for continuity and long-term maintenance.
 
 ## 📞 Contact
 
 **Dr. C.V. Krishnaveni**  
-IQAC Coordinator & Assistant Professor, Department of Computer Science  
+Lecturer in Computer Science & IQAC Coordinator 
 SKR & SKR Government College for Women (Autonomous)  
 Nagarajupeta, Kadapa, Andhra Pradesh — 516001  
-📧 iqac.nirf.gdcw.kdp@gmail.com  
-📞 9490519982
+
 
 *For queries about customising this system for your college, feel free to reach out.*
 
